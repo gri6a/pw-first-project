@@ -38,12 +38,13 @@ test('Login - invalid username - Demo Bank', async ({ page }) => {
     console.log(await page.locator('#error_login_id').textContent());
 });
 
-test('Testing git', async ({ page }) => {
-    await page.goto('https://demo-bank.vercel.app/index.html');
-    await expect(page).toHaveURL('https://demo-bank.vercel.app/index.html');
-    await page.locator('#login_id').fill('uzyt');
-    await page.locator('#login_password').fill('password');
-    await page.locator('#login-btn').blur();
-    await expect(page.locator('#error_login_id')).toContainText('identyfikator ma min. 8 znaków');
-    console.log(await page.locator('#error_login_id').textContent());
+test.only('getting elements', async ({ page }) => {
+        
+    await page.goto('https://rahulshettyacademy.com/seleniumPractise/#/');
+    await expect(page).toHaveURL('https://rahulshettyacademy.com/seleniumPractise/#/');
+    console.log(await page.locator('.product h4').first().textContent());
+    console.log(await page.locator('.product h4').last().textContent());
+    console.log(await page.locator('.product h4').nth(1).textContent()); // second element
+    console.log(await page.locator('.product h4').allTextContents()); // all elements as an array
+
 });
